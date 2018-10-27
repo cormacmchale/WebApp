@@ -12,8 +12,13 @@ export class IndexComponent implements OnInit {
 
   databaseInfo:any = [];
   
-  ngOnInit() {
-    //get info from database here
+  ngOnInit(){
+    
+    //this.posts = this.ps.getPosts();
+    this.info.getPostsData().subscribe(data => {
+    this.databaseInfo = data.posts;
+    });
+
   }
 
 }
