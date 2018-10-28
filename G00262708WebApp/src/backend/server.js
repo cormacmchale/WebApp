@@ -49,7 +49,16 @@ var server = app.listen(8081, function () {
             );
         })
 
-app.get('/database', function(req, res){
-            //console.log(PostModel)
-            res.status(200).json({'posts':'dATABASEiNFO'})
+app.get('/database', function(req, res){         
+   const query =  PostModel.find({ 'title': 'Bad Movie' });
+      // execute the query at a later time
+    var comments = [];
+    query.exec(function (err, comments) {
+        if (err) return handleError(err);
+        // athletes contains an ordered list of 5 athletes who play Tennis
+    })
+
+        console.log(comments);
+        console.log("hello");
+
         })
