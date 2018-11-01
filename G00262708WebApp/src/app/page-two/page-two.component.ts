@@ -18,7 +18,7 @@ export class PageTwoComponent implements OnInit {
      postForm.resetForm();
    }
 
-  databaseInfo:any = [];
+  //databaseInfo:any = [];
 
   ngOnInit() {
   }

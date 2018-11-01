@@ -19,4 +19,8 @@ export class GetInfoService {
     return this.http.post("http://localhost:8081/database",post);
   }
 
+  deletePost(title: string): Observable<any>{
+    return this.http.delete("http://localhost:8081/database/delete/"+title);
+  }
+
 }

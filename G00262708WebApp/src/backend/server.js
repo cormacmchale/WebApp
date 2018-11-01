@@ -22,6 +22,7 @@ var addComment = new Schema({
 });
 
 var PostModel = mongoose.model('DataBaseInfo', addComment);
+//var getModel =  mongoose.model('DataBaseInfo', addComment);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -50,15 +51,20 @@ var server = app.listen(8081, function () {
         })
 
 app.get('/database', function(req, res){         
-   const query =  PostModel.find({ 'title': 'Bad Movie' });
-      // execute the query at a later time
-    var comments = [];
-    query.exec(function (err, comments) {
-        if (err) return handleError(err);
-        // athletes contains an ordered list of 5 athletes who play Tennis
-    })
+    //var data = [];
+    PostModel.find(function(err, data) {
+        if (err)
+        {
+        res.send(err)
+        console.log(err);
+        }
+        res.json(data);
+        });   
+    //console.log(data);
+ })
 
-        console.log(comments);
-        console.log("hello");
-
-        })
+ app.delete('/database/delete/:title', function(req, res){         
+    //var data = [];
+      console.log("Get " + req.params.title + " Post"); 
+    //console.log(data);
+ })

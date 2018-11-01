@@ -1,14 +1,13 @@
-<mat-toolbar color="primary">Datsbase</mat-toolbar>
-<mat-accordion multi="true" *ngIf="databaseInfo.length > 0">
+<mat-toolbar color="primary">Database</mat-toolbar>
+<mat-accordion multi="true" >
   <mat-expansion-panel [expanded]="true" *ngFor="let post of databaseInfo">
     <mat-expansion-panel-header>
       {{ post.title }}
     </mat-expansion-panel-header>
     <p>{{ post.comment }}</p>
     <mat-action-row>
-      <button mat-button color="primary">EDIT</button>
-      <button mat-button color="warn">DELETE</button>
+        <button mat-button color="warn" onclick="delete(title)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<p class="info-text mat-body-1" *ngIf="databaseInfo.length <= 0">No posts added yet!</p>
+<p class="info-text mat-body-1" *ngIf="databaseInfo.length <= 0">No posts added yet!</p> 
