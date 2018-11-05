@@ -13,21 +13,18 @@ export class IndexComponent implements OnInit {
   databaseInfo:any = [];
   
    
-  delete(title) {
-    this.info.deletePost(title).subscribe()
-    console.log(title);
-    console.log("hello");
-    //postForm.resetForm();
+  delete(title) 
+  {
+    this.ngOnInit();
+    this.info.deletePost(title).subscribe();
   }
 
-  ngOnInit(){
-    
+  ngOnInit(){ 
     //this.posts = this.ps.getPosts();
     this.info.getPostsData().subscribe(data => {
     this.databaseInfo = data;
     });
     
- 
   }
 
 }
