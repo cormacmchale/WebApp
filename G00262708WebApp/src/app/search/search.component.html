@@ -6,11 +6,16 @@
 <mat-action-row>
   <button mat-button color="warn" type="submit">Search</button>
 </mat-action-row>
-<mat-card *ngIf="databaseInfo.length >= 0">
-	<mat-card-header>
-    <!-- <mat-icon>more_vert</mat-icon> -->
+</form>
+<p>{{databaseInfo.Dish}}</p>
+<p>{{databaseInfo.Ingredients}}</p>
+<p><img src = "{{databaseInfo.img}}"></p>
+<button mat-button color="warn" (click)="delete(databaseInfo._id)">DELETE</button>
+<!-- <mat-card *ngIf="databaseInfo.length >= 0" >
+	<mat-card-header *ngFor="let post of databaseInfo"> 
     <img src ="{{post.img}}" mat-card-avatar>
 		<mat-card-title>{{post.title}}</mat-card-title>
 		<mat-card-subtitle>{{post.comment}}</mat-card-subtitle>
 	</mat-card-header>
-</mat-card>
+</mat-card> -->
+

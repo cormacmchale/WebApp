@@ -1,29 +1,25 @@
-//part 2
 var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require("body-parser");
 
+//setting up mongoose/database connection and schema
 var mongoose = require('mongoose');
 const mongoDB = 'mongodb://shamsandwiches:materia22@ds137863.mlab.com:37863/labdatabase';
 mongoose.connect(mongoDB);
-
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
 });
-
 var Schema = mongoose.Schema;
-
-var addComment = new Schema({
-    title: String,
-    comment: String,
+var addRecipe = new Schema({
+    Dish: String,
+    Ingredients: String,
     img: String
 });
 
-var PostModel = mongoose.model('DataBaseInfo', addComment);
-//var getModel =  mongoose.model('DataBaseInfo', addComment);
+var PostModel = mongoose.model('Recipes', addRecipe);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -32,30 +28,33 @@ app.use(function(req, res, next) {
     next();
 });
 
-
-
 //Here we are configuring express to use body-parser as middle-ware.
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
 
-var server = app.listen(8081, function () {
-        var host = server.address().address
-        var port = server.address().port
-        })
+var server = app.listen(8081, function ()
+ {
+    var host = server.address().address
+    var port = server.address().port
+ })
 
+//Server Methods
+//adds a document to the database based on infor sent from service
  app.post('/database', function(req, res){
             //console.log(req.body)
             PostModel.create(
                 {
-                  title: req.body.title,
-                  comment: req.body.comment,
+                  Dish: req.body.Dish,
+                  Ingredients: req.body.Ingredients,
                   img:req.body.img
                 }
             );
+            //error handling for sending duplicates
+            res.send("No Duplicates Please");
         })
 
+//returns all documents to client
 app.get('/database', function(req, res){         
-    //var data = [];
     PostModel.find(function(err, data) {
         if (err)
         {
@@ -64,27 +63,24 @@ app.get('/database', function(req, res){
         }
         res.json(data);
         });   
-    //console.log(data);
- })
+ })//end get
 
- app.get('/database/search/:Dish', function(req, res){           
-    console.log(req.params.Dish);
-    PostModel.findOne({title: req.params.Dish},function(err, data) {
+//returns a document based off search word sent from service
+ app.get('/database/search/:Dish', function(req, res)
+ {           
+    PostModel.findOne({Dish: req.params.Dish},function(err, data) {
         if (err)
         {
         res.send(err)
         console.log(err);
         }
-        console.log(data);
         res.json(data);
         });  
- })
+ })//end get
 
-
- app.delete('/database/delete/:title', function(req, res){         
-    //var data = [];
-    console.log(req.params.title); 
-    //console.log(data);
-    PostModel.deleteOne({ _id: req.params.title },
+ //deletes a document from the database based of the id sent from service
+ app.delete('/database/delete/:id', function(req, res)
+ {         
+    PostModel.deleteOne({ _id: req.params.id },
         function (err) {});
- })
+ })//end delete

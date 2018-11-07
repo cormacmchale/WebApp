@@ -11,20 +11,30 @@ export class SearchComponent implements OnInit {
 
   constructor(private info: GetInfoService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    //checking the array contents here
     console.log(this.databaseInfo);
   }
  
+  //variable to store object returned from search
   databaseInfo:any = [];
 
   search(searchWord: NgForm)
   {
-   //console.log("So far so good");
+   //get data from database through searchPost->Service->server
    this.info.searchPost(searchWord.value.dish).subscribe(data=>
   {
     this.databaseInfo = data;
+    this.ngOnInit();
   });
-  this.ngOnInit();
+  }
   
+  delete(id) 
+  {
+    //go to delete Post -> service->send Post id to server to delete post from database
+    this.info.deletePost(id).subscribe();
+    this.databaseInfo=[]; 
+    this.ngOnInit();         
   }
 }

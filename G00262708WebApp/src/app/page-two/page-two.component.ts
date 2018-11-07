@@ -13,7 +13,7 @@ export class PageTwoComponent implements OnInit {
   constructor(private info:GetInfoService) { }
 
    onAddPost(postForm: NgForm) {
-     this.info.addPost(postForm.value.title, postForm.value.comment,postForm.value.img).subscribe()
+     this.info.addPost(postForm.value.Dish, postForm.value.Ingredients,postForm.value.img).subscribe()
      console.log(postForm.value);
      postForm.resetForm();
    }

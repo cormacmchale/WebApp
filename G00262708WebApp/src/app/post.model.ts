@@ -1,5 +1,5 @@
 export interface Post {
-    title: string;
-    comment: string;
+    Dish: string;
+    Ingredients: string;
     img:string;
   }
