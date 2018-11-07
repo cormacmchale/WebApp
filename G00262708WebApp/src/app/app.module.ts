@@ -8,17 +8,49 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //for viewing pleasure
-import { MatInputModule,
-         MatMenuModule,
-         MatCardModule,
-         MatButtonModule,
-         MatIconModule,
-         MatToolbarModule,
-         MatExpansionModule} from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatCommonModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatLineModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatOptionModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatPseudoCheckboxModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,} from '@angular/material';
 
 //components
 import { AppComponent } from './app.component';
 import { PageTwoComponent } from './page-two/page-two.component';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +58,9 @@ const appRoutes: Routes = [
   },
   {
   path: 'pageTwo', component: PageTwoComponent
+  },
+  {
+  path: 'search', component: SearchComponent
   }
 ]
 
@@ -33,22 +68,52 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     IndexComponent,
-    PageTwoComponent
+    PageTwoComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    MatIconModule,
+    MatAutocompleteModule,
     MatButtonModule,
-    BrowserAnimationsModule,
-    MatInputModule,
+    MatButtonToggleModule,
     MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatCommonModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
     MatExpansionModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatLineModule,
+    MatListModule,
     MatMenuModule,
-    FormsModule    
+    MatNativeDateModule,
+    MatOptionModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatPseudoCheckboxModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    FormsModule,
+    BrowserAnimationsModule 
   ],
   providers: [GetInfoService],
   bootstrap: [AppComponent]

@@ -18,7 +18,8 @@ var Schema = mongoose.Schema;
 
 var addComment = new Schema({
     title: String,
-    comment: String
+    comment: String,
+    img: String
 });
 
 var PostModel = mongoose.model('DataBaseInfo', addComment);
@@ -47,7 +48,8 @@ var server = app.listen(8081, function () {
             PostModel.create(
                 {
                   title: req.body.title,
-                  comment: req.body.comment
+                  comment: req.body.comment,
+                  img:req.body.img
                 }
             );
         })
@@ -64,6 +66,20 @@ app.get('/database', function(req, res){
         });   
     //console.log(data);
  })
+
+ app.get('/database/search/:Dish', function(req, res){           
+    console.log(req.params.Dish);
+    PostModel.findOne({title: req.params.Dish},function(err, data) {
+        if (err)
+        {
+        res.send(err)
+        console.log(err);
+        }
+        console.log(data);
+        res.json(data);
+        });  
+ })
+
 
  app.delete('/database/delete/:title', function(req, res){         
     //var data = [];

@@ -1,29 +1,26 @@
 <mat-card>
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
-    <mat-form-field>
-      <input
-        matInput
-        type="text"
-        name="title"
-        ngModel
-        required
-        minlength="3"
-        #title="ngModel">
+
+      <p>Dish: </p>
+      <input matInput type="text" name="title" ngModel required  #title="ngModel">
       <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
-    </mat-form-field>
+
     <br>
     <br>
-    <mat-form-field>
-      <textarea
-        matInput
-        name="comment"
-        ngModel
-        required
-        #comment="ngModel"></textarea>
+
+      <p>Ingredients: </p>
+      <textarea matInput type="text" name="comment" ngModel required #comment="ngModel"></textarea>
       <mat-error *ngIf="comment.invalid">Please enter comment</mat-error>
-    </mat-form-field>
-    <button
-      mat-raised-button
-      type="submit">Save Post</button>
+ 
+    <br>
+    <br>
+
+    <p>Add Img URL: </p>
+    <textarea matInput type="text" name="img" ngModel required #img="ngModel">
+    </textarea> 
+    <br>
+    <br>
+    <button mat-raised-button type="submit" align ="center">Save Post</button>
+
   </form>
 </mat-card>

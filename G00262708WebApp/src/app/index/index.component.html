@@ -1,5 +1,14 @@
-<mat-toolbar color="primary">Database</mat-toolbar>
-<mat-accordion multi="true" >
+<mat-toolbar color="primary">Recipes</mat-toolbar>
+<mat-divider></mat-divider>
+<mat-card *ngFor="let post of databaseInfo">
+	<mat-card-header>
+    <!-- <mat-icon>more_vert</mat-icon> -->
+    <img src ="{{post.img}}" mat-card-avatar>
+		<mat-card-title>{{post.title}}</mat-card-title>
+		<mat-card-subtitle>{{post.comment}}</mat-card-subtitle>
+	</mat-card-header>
+</mat-card>
+<!-- <mat-accordion multi="true" >
   <mat-expansion-panel [expanded]="true" *ngFor="let post of databaseInfo">
     <mat-expansion-panel-header>
       {{ post.title }}
@@ -9,5 +18,5 @@
       <button mat-button color="warn" (click)="delete(post._id)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
-</mat-accordion>
+</mat-accordion> -->
 <p class="info-text mat-body-1" *ngIf="databaseInfo.length <= 0">No posts added yet!</p> 

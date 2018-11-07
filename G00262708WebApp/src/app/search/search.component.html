@@ -1,0 +1,16 @@
+
+<form (submit)="search(searchWord)" #searchWord="ngForm">
+  <p>Search: </p>
+  <input matInput type="text" name="dish" ngModel required  #dish="ngModel">
+  <mat-error *ngIf="dish.invalid">Please enter a post title.</mat-error>
+<mat-action-row>
+  <button mat-button color="warn" type="submit">Search</button>
+</mat-action-row>
+<mat-card *ngIf="databaseInfo.length >= 0">
+	<mat-card-header>
+    <!-- <mat-icon>more_vert</mat-icon> -->
+    <img src ="{{post.img}}" mat-card-avatar>
+		<mat-card-title>{{post.title}}</mat-card-title>
+		<mat-card-subtitle>{{post.comment}}</mat-card-subtitle>
+	</mat-card-header>
+</mat-card>
