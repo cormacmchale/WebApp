@@ -11,11 +11,35 @@
 <p>{{databaseInfo.Ingredients}}</p>
 <p><img src = "{{databaseInfo.img}}"></p>
 <button mat-button color="warn" (click)="delete(databaseInfo._id)">DELETE</button>
-<!-- <mat-card *ngIf="databaseInfo.length >= 0" >
-	<mat-card-header *ngFor="let post of databaseInfo"> 
-    <img src ="{{post.img}}" mat-card-avatar>
-		<mat-card-title>{{post.title}}</mat-card-title>
-		<mat-card-subtitle>{{post.comment}}</mat-card-subtitle>
-	</mat-card-header>
-</mat-card> -->
+<button mat-button color="warn" (click)="displayEdit()">Edit</button>
+
+<br>
+<br>
+
+<mat-card *ngIf="(bool%2)== 1" >
+  <form #postForm="ngForm">
+
+    <p>Dish: </p>
+    <input matInput type="text" name="Dish" ngModel required  #Dish="ngModel">
+    <mat-error *ngIf="Dish.invalid">Please enter a post title.</mat-error>
+
+  <br>
+  <br>
+
+    <p>Ingredients: </p>
+    <textarea matInput type="text" name="Ingredients" ngModel required #Ingredients="ngModel"></textarea>
+    <mat-error *ngIf="Ingredients.invalid">Please enter comment</mat-error>
+
+  <br>
+  <br>
+
+  <p>Add Img URL: </p>
+  <textarea matInput type="text" name="img" ngModel required #img="ngModel">
+  </textarea> 
+  <br>
+  <br>
+  <button mat-raised-button (click)=(updatePost(postForm)) align ="center">Edit Post</button>
+
+</form>
+</mat-card>
 

@@ -29,4 +29,11 @@ export class GetInfoService {
     return this.http.get("http://localhost:8081/database/search/"+Dish);
   }
 
+  updatePost(id: string, Dish: string, Ingredients: string, img: string): Observable<any> {
+    const post: Post = {Dish: Dish, Ingredients: Ingredients, img:img};
+    console.log(id);
+    console.log(post);    
+    return this.http.put("http://localhost:8081/database/update/"+id, post);
+    }
+
 }

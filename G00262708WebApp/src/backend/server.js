@@ -1,3 +1,4 @@
+
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -40,9 +41,11 @@ var server = app.listen(8081, function ()
 
 //Server Methods
 //adds a document to the database based on infor sent from service
- app.post('/database', function(req, res){
+ app.post('/database', function(req, res)
+ {
             //console.log(req.body)
-            PostModel.create(
+            PostModel.create
+            (
                 {
                   Dish: req.body.Dish,
                   Ingredients: req.body.Ingredients,
@@ -51,7 +54,8 @@ var server = app.listen(8081, function ()
             );
             //error handling for sending duplicates
             res.send("No Duplicates Please");
-        })
+
+ })
 
 //returns all documents to client
 app.get('/database', function(req, res){         
@@ -84,3 +88,13 @@ app.get('/database', function(req, res){
     PostModel.deleteOne({ _id: req.params.id },
         function (err) {});
  })//end delete
+
+ app.put('/database/update/:id', function(req,res){
+    console.log("hello");
+    console.log(req.body);
+    PostModel.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+    });
+    }
+)//end put

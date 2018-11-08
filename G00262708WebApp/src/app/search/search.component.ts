@@ -11,14 +11,19 @@ export class SearchComponent implements OnInit {
 
   constructor(private info: GetInfoService) { }
 
+    //variable to store object returned from search
+    databaseInfo:any = [];
+    //variable for show edit
+    bool:number = 0;
+    updateId:string;
   ngOnInit() 
   {
     //checking the array contents here
     console.log(this.databaseInfo);
+    console.log(this.updateId);
+    
   }
  
-  //variable to store object returned from search
-  databaseInfo:any = [];
 
   search(searchWord: NgForm)
   {
@@ -26,6 +31,7 @@ export class SearchComponent implements OnInit {
    this.info.searchPost(searchWord.value.dish).subscribe(data=>
   {
     this.databaseInfo = data;
+    this.updateId = this.databaseInfo._id;
     this.ngOnInit();
   });
   }
@@ -37,4 +43,17 @@ export class SearchComponent implements OnInit {
     this.databaseInfo=[]; 
     this.ngOnInit();         
   }
+
+  displayEdit()
+  {
+   this.bool++;
+   console.log(this.bool);
+  }
+
+  updatePost(postForm: NgForm)
+  {
+
+    this.info.updatePost(this.updateId, postForm.value.Dish, postForm.value.Ingredients, postForm.value.img).subscribe();
+  }
+
 }
