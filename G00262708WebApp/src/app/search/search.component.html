@@ -20,21 +20,21 @@
   <form #postForm="ngForm">
 
     <p>Dish: </p>
-    <input matInput type="text" name="Dish" ngModel required  #Dish="ngModel">
+    <input matInput type="text" [(ngModel)]="databaseInfo.Dish" name="Dish" ngModel required  #Dish="ngModel">
     <mat-error *ngIf="Dish.invalid">Please enter a post title.</mat-error>
 
   <br>
   <br>
 
     <p>Ingredients: </p>
-    <textarea matInput type="text" name="Ingredients" ngModel required #Ingredients="ngModel"></textarea>
+    <textarea matInput type="text" [(ngModel)]="databaseInfo.Ingredients" name="Ingredients" ngModel required #Ingredients="ngModel"></textarea>
     <mat-error *ngIf="Ingredients.invalid">Please enter comment</mat-error>
 
   <br>
   <br>
 
   <p>Add Img URL: </p>
-  <textarea matInput type="text" name="img" ngModel required #img="ngModel">
+  <textarea matInput type="text" [(ngModel)]="databaseInfo.img" name="img" ngModel required #img="ngModel">
   </textarea> 
   <br>
   <br>
