@@ -15,8 +15,10 @@ export class IndexComponent implements OnInit {
    
   ngOnInit(){ 
     //this.posts = this.ps.getPosts();
+
     this.info.getPostsData().subscribe(data => {
     this.databaseInfo = data;
+    console.log(this.databaseInfo);
     });
     
   }

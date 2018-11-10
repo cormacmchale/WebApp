@@ -20,7 +20,18 @@ var addRecipe = new Schema({
     img: String
 });
 
+var addNewRecipe = new Schema
+(
+    {
+        Dish: String,
+        Ingredients: String,
+        img: String,
+        list:Array
+    }
+);
+
 var PostModel = mongoose.model('Recipes', addRecipe);
+var NewModel = mongoose.model('NewRecipes', addNewRecipe);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -41,24 +52,35 @@ var server = app.listen(8081, function ()
 
 //Server Methods
 //adds a document to the database based on infor sent from service
- app.post('/database', function(req, res)
+ app.post('/database/test', function(req, res)
  {
             //console.log(req.body)
-            PostModel.create
+            NewModel.create
             (
                 {
                   Dish: req.body.Dish,
                   Ingredients: req.body.Ingredients,
-                  img:req.body.img
+                  img:req.body.img,
+                  list:req.body.list
                 }
             );
             //error handling for sending duplicates
             res.send("No Duplicates Please");
-
  })
 
 //returns all documents to client
-app.get('/database', function(req, res){         
+app.get('/database/test', function(req, res){         
+    NewModel.find(function(err, data) {
+        if (err)
+        {
+        res.send(err)
+        console.log(err);
+        }
+        res.json(data);
+        });   
+ })//end get
+
+ app.get('/database', function(req, res){         
     PostModel.find(function(err, data) {
         if (err)
         {
@@ -72,7 +94,7 @@ app.get('/database', function(req, res){
 //returns a document based off search word sent from service
  app.get('/database/search/:Dish', function(req, res)
  {           
-    PostModel.findOne({Dish: req.params.Dish},function(err, data) {
+    NewModel.findOne({Dish: req.params.Dish},function(err, data) {
         if (err)
         {
         res.send(err)

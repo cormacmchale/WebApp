@@ -2,11 +2,13 @@
 <mat-divider></mat-divider>
 <mat-card *ngFor="let post of databaseInfo">
 	<mat-card-header>
-    <!-- <mat-icon>more_vert</mat-icon> -->
     <img src ="{{post.img}}" mat-card-avatar>
 		<mat-card-title>{{post.Dish}}</mat-card-title>
-		<mat-card-subtitle>{{post.Ingredients}}</mat-card-subtitle>
-	</mat-card-header>
+    <mat-card-subtitle>{{post.Ingredients}}</mat-card-subtitle>
+  </mat-card-header>
+      <ul *ngFor = "let h of post.list">
+      <li>{{h}}</li>
+      </ul>
 </mat-card>
 <!-- <mat-accordion multi="true" >
   <mat-expansion-panel [expanded]="true" *ngFor="let post of databaseInfo">

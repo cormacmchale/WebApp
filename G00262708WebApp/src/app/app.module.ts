@@ -7,6 +7,7 @@ import {GetInfoService} from './get-info.service';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 //for viewing pleasure
 import {
   MatAutocompleteModule,
@@ -45,7 +46,8 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule,} from '@angular/material';
+  MatTooltipModule
+} from '@angular/material';
 
 //components
 import { AppComponent } from './app.component';

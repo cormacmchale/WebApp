@@ -1,26 +1,39 @@
-<mat-card>
-  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
-
-      <p>Dish: </p>
-      <input matInput type="text" name="Dish" ngModel required  #Dish="ngModel">
-      <mat-error *ngIf="Dish.invalid">Please enter a post title.</mat-error>
-
+<form (submit)="onAddPost(postForm)"  #postForm="ngForm">
+<mat-card color="primary">
+    <p>Dish: </p>
+    <input matInput type="text" name="Dish" ngModel required  #Dish="ngModel">
+    <mat-error *ngIf="Dish.invalid">Please enter a post title.</mat-error>
     <br>
     <br>
-
-      <p>Ingredients: </p>
-      <textarea matInput type="text" name="Ingredients" ngModel required #Ingredients="ngModel"></textarea>
-      <mat-error *ngIf="Ingredients.invalid">Please enter comment</mat-error>
- 
+    <p>Cooking Instructions: </p>
+    <textarea matInput type="text" name="Ingredients" ngModel required #Ingredients="ngModel"></textarea>
+    <mat-error *ngIf="Ingredients.invalid">Please enter comment</mat-error> 
     <br>
     <br>
-
     <p>Add Img URL: </p>
     <textarea matInput type="text" name="img" ngModel required #img="ngModel">
     </textarea> 
     <br>
     <br>
     <button mat-raised-button type="submit" align ="center">Save Post</button>
-
-  </form>
 </mat-card>
+    <br>
+    <br> 
+    <h1>Ingredients</h1>
+    <mat-card color="primary">   
+    <mat-list>
+      <mat-list-item>Ingredient 1</mat-list-item>
+      <textarea matInput type="text" name="One" ngModel required #One="ngModel"></textarea>
+      <mat-divider></mat-divider>
+      <mat-list-item>Ingredient 2</mat-list-item>
+      <textarea matInput type="text" name="Two" ngModel required #Two="ngModel"></textarea>
+      <mat-divider></mat-divider>
+      <mat-list-item>Ingredient 3</mat-list-item>
+      <textarea matInput type="text" name="Three" ngModel required #Three="ngModel"></textarea>
+      <mat-divider></mat-divider>
+      <mat-list-item>Ingredient 4</mat-list-item>
+      <textarea matInput type="text" name="Four" ngModel required #Four="ngModel"></textarea>
+    </mat-list>
+    <button mat-raised-button (click)="onAddPostTest(postForm)" align ="center">Save Post</button>
+  </mat-card>
+</form>

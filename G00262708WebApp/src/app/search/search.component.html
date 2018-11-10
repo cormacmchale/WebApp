@@ -1,4 +1,4 @@
-
+<mat-card>
 <form (submit)="search(searchWord)" #searchWord="ngForm">
   <p>Search: </p>
   <input matInput type="text" name="dish" ngModel required  #dish="ngModel">
@@ -10,6 +10,7 @@
 <p>{{databaseInfo.Dish}}</p>
 <p>{{databaseInfo.Ingredients}}</p>
 <p><img src = "{{databaseInfo.img}}"></p>
+<p *ngFor = "let n of databaseInfo.list">{{n}}</p>
 <button mat-button color="warn" (click)="delete(databaseInfo._id)">DELETE</button>
 <button mat-button color="warn" (click)="displayEdit()">Edit</button>
 
