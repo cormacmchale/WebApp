@@ -51,12 +51,13 @@ export class SearchComponent implements OnInit {
   updatePost(postForm: NgForm)
   {
     //same logic as add recipe
+    console.log("Update");
     this.ingredients.push(postForm.value.One);
     this.ingredients.push(postForm.value.Two);
     this.ingredients.push(postForm.value.Three);
     this.ingredients.push(postForm.value.Four);
     this.info.updateRecipe(this.updateId, postForm.value.Dish, postForm.value.Ingredients, postForm.value.img, this.ingredients).subscribe();
-    this.ngOnInit();
+    this.bool++;
   }
 
 }

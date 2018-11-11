@@ -1,37 +1,38 @@
 <form #postForm="ngForm">
-<mat-card color="primary">
-    <p>Dish: </p>
-    <input matInput type="text" name="Dish" ngModel required  #Dish="ngModel">
-    <mat-error *ngIf="Dish.invalid">Please enter a post title.</mat-error>
-    <br>
-    <br>
-    <p>Cooking Instructions: </p>
-    <textarea matInput type="text" height="500" width="500" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
-    <mat-error *ngIf="Instructions.invalid">Please enter Instructions</mat-error> 
-    <br>
-    <br>
-    <p>Add Img URL: </p>
-    <textarea matInput type="text" name="img" ngModel required #img="ngModel">
-    </textarea> 
-    <br>
-</mat-card>
-    <br>
-    <br> 
-    <h1>Ingredients</h1>
+  <h1>Recipe</h1>
+    <mat-card color="primary">
+      <mat-list>
+          <mat-list-item>Dish</mat-list-item>
+            <textarea matInput type="text" name="Dish" ngModel required #Dish="ngModel"></textarea>
+              <mat-divider></mat-divider>  
+          <mat-list-item>Cooking Instructions</mat-list-item>
+            <textarea matInput type="text" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
+              <mat-divider></mat-divider> 
+        <mat-list-item>Image URL</mat-list-item>
+            <textarea matInput type="text"name="img" ngModel required #img="ngModel"></textarea>
+              <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card>
+<br> 
+  <h1>Ingredients</h1>
     <mat-card color="primary">   
-    <mat-list>
-      <mat-list-item>Ingredient 1</mat-list-item>
-      <textarea matInput type="text" name="ingredientOne" ngModel required #ingredientOne="ngModel"></textarea>
-      <mat-divider></mat-divider>
-      <mat-list-item>Ingredient 2</mat-list-item>
-      <textarea matInput type="text" name="ingredientTwo" ngModel required #ingredientTwo="ngModel"></textarea>
-      <mat-divider></mat-divider>
-      <mat-list-item>Ingredient 3</mat-list-item>
-      <textarea matInput type="text" name="ingredientThree" ngModel required #ingredientThree="ngModel"></textarea>
-      <mat-divider></mat-divider>
-      <mat-list-item>Ingredient 4</mat-list-item>
-      <textarea matInput type="text" name="ingredientFour" ngModel required #ingredientFour="ngModel"></textarea>
-    </mat-list>
-    <button mat-raised-button (click)="addRecipe(postForm)" align ="center">Save Post</button>
-  </mat-card>
+      <mat-list>
+          <mat-list-item>Ingredient 1</mat-list-item>
+            <textarea matInput type="text" name="ingredientOne" ngModel required #ingredientOne="ngModel"></textarea>
+              <mat-divider></mat-divider>
+          <mat-list-item>Ingredient 2</mat-list-item>
+            <textarea matInput type="text" name="ingredientTwo" ngModel required #ingredientTwo="ngModel"></textarea>
+              <mat-divider></mat-divider>
+          <mat-list-item>Ingredient 3</mat-list-item>
+            <textarea matInput type="text" name="ingredientThree" ngModel required #ingredientThree="ngModel"></textarea>
+              <mat-divider></mat-divider>
+          <mat-list-item>Ingredient 4</mat-list-item>
+            <textarea matInput type="text" name="ingredientFour" ngModel required #ingredientFour="ngModel"></textarea>
+              <mat-divider></mat-divider>
+      </mat-list>
+<br>
+<br>
+  <button mat-raised-button (click)="addRecipe(postForm)" align ="center">Add Recipe</button>
+    </mat-card>
 </form>
+
