@@ -10,25 +10,18 @@ import { NgForm } from "@angular/forms";
 })
 export class PageTwoComponent implements OnInit {
 
-
+  //used to store an array of ingredients to be sent to the service
   ingredients:any= [];
 
   constructor(private info:GetInfoService) { }
    
-   onAddPost(postForm: NgForm) {
-     this.info.addPost(postForm.value.Dish, postForm.value.Ingredients,postForm.value.img).subscribe()
-     console.log(postForm.value);
-     postForm.resetForm();
-   }
-
-   onAddPostTest(postForm: NgForm) {
-    this.ingredients.push(postForm.value.One);
-    this.ingredients.push(postForm.value.Two);
-    this.ingredients.push(postForm.value.Three);
-    this.ingredients.push(postForm.value.Four);
-    console.log(this.ingredients);
-    this.info.addPostTest(postForm.value.Dish, postForm.value.Ingredients,postForm.value.img, this.ingredients).subscribe()
-    console.log(postForm.value);
+ 
+   addRecipe(postForm: NgForm) {
+    this.ingredients.push(postForm.value.ingredientOne);
+    this.ingredients.push(postForm.value.ingredientTwo);
+    this.ingredients.push(postForm.value.ingredientThree);
+    this.ingredients.push(postForm.value.ingredientFour);
+    this.info.addRecipe(postForm.value.Dish, postForm.value.Instructions,postForm.value.img, this.ingredients).subscribe();
     postForm.resetForm();
   }
 

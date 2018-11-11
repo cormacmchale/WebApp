@@ -1,4 +1,3 @@
-
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -14,23 +13,17 @@ db.once('open', function() {
   // we're connected!
 });
 var Schema = mongoose.Schema;
-var addRecipe = new Schema({
-    Dish: String,
-    Ingredients: String,
-    img: String
-});
-
+//schema for info fro recipe
 var addNewRecipe = new Schema
 (
     {
         Dish: String,
-        Ingredients: String,
+        Instructions: String,
         img: String,
-        list:Array
+        Ingredients:Array
     }
 );
-
-var PostModel = mongoose.model('Recipes', addRecipe);
+//model for accessing info from database "CRUD"
 var NewModel = mongoose.model('NewRecipes', addNewRecipe);
 
 app.use(function(req, res, next) {
@@ -51,7 +44,7 @@ var server = app.listen(8081, function ()
  })
 
 //Server Methods
-//adds a document to the database based on infor sent from service
+//adds a document to the database based on info sent from service
  app.post('/database/test', function(req, res)
  {
             //console.log(req.body)
@@ -59,9 +52,9 @@ var server = app.listen(8081, function ()
             (
                 {
                   Dish: req.body.Dish,
-                  Ingredients: req.body.Ingredients,
+                  Instructions: req.body.Instructions,
                   img:req.body.img,
-                  list:req.body.list
+                  Ingredients:req.body.Ingredients
                 }
             );
             //error handling for sending duplicates
@@ -71,17 +64,6 @@ var server = app.listen(8081, function ()
 //returns all documents to client
 app.get('/database/test', function(req, res){         
     NewModel.find(function(err, data) {
-        if (err)
-        {
-        res.send(err)
-        console.log(err);
-        }
-        res.json(data);
-        });   
- })//end get
-
- app.get('/database', function(req, res){         
-    PostModel.find(function(err, data) {
         if (err)
         {
         res.send(err)
@@ -107,14 +89,15 @@ app.get('/database/test', function(req, res){
  //deletes a document from the database based of the id sent from service
  app.delete('/database/delete/:id', function(req, res)
  {         
-    PostModel.deleteOne({ _id: req.params.id },
+    NewModel.deleteOne({ _id: req.params.id },
         function (err) {});
  })//end delete
 
+ //takes in id and new info about recipe finds ID in the database and updates it
  app.put('/database/update/:id', function(req,res){
     console.log("hello");
     console.log(req.body);
-    PostModel.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    NewModel.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
     });

@@ -11,49 +11,52 @@ export class SearchComponent implements OnInit {
 
   constructor(private info: GetInfoService) { }
 
-    //variable to store object returned from search
-    databaseInfo:any = [];
-    //variable for show edit
-    bool:number = 0;
-    updateId:string;
-  ngOnInit() 
-  {
-    //checking the array contents here
-    console.log(this.databaseInfo);
-    console.log(this.updateId);
+  //variable to store object returned from search
+  recipe:any = [];
+  //variable for storing new ingredients to be sent to updat function in service
+  ingredients:any= [];
+  //variable for show edit
+  bool:number = 0;
+  //storing id to be sent back for delete/update
+  updateId:string;
     
-  }
+  ngOnInit(){}
  
-
   search(searchWord: NgForm)
   {
    //get data from database through searchPost->Service->server
-   this.info.searchPost(searchWord.value.dish).subscribe(data=>
-  {
-    this.databaseInfo = data;
-    this.updateId = this.databaseInfo._id;
-    this.ngOnInit();
-  });
-  }
+   this.info.searchRecipe(searchWord.value.dish).subscribe(data=>
+   {
+    this.recipe = data;
+    this.updateId = this.recipe._id; 
+   });
+   this.ngOnInit();
+  }//end search function
   
   delete(id) 
   {
     //go to delete Post -> service->send Post id to server to delete post from database
-    this.info.deletePost(id).subscribe();
-    this.databaseInfo=[]; 
+    this.info.deleteRecipe(id).subscribe();
+    //clear Array
+    this.recipe=[]; 
+    //re-load Page
     this.ngOnInit();         
   }
 
   displayEdit()
   {
+   //everytime this is pressed the menu for editing opens up!
    this.bool++;
-   console.log(this.bool);
   }
-
   updatePost(postForm: NgForm)
   {
-
-    this.info.updatePost(this.updateId, postForm.value.Dish, postForm.value.Ingredients, postForm.value.img).subscribe();
+    //same logic as add recipe
+    this.ingredients.push(postForm.value.One);
+    this.ingredients.push(postForm.value.Two);
+    this.ingredients.push(postForm.value.Three);
+    this.ingredients.push(postForm.value.Four);
+    this.info.updateRecipe(this.updateId, postForm.value.Dish, postForm.value.Ingredients, postForm.value.img, this.ingredients).subscribe();
+    this.ngOnInit();
   }
 
 }

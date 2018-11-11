@@ -1,4 +1,4 @@
-<form (submit)="onAddPost(postForm)"  #postForm="ngForm">
+<form #postForm="ngForm">
 <mat-card color="primary">
     <p>Dish: </p>
     <input matInput type="text" name="Dish" ngModel required  #Dish="ngModel">
@@ -6,16 +6,14 @@
     <br>
     <br>
     <p>Cooking Instructions: </p>
-    <textarea matInput type="text" name="Ingredients" ngModel required #Ingredients="ngModel"></textarea>
-    <mat-error *ngIf="Ingredients.invalid">Please enter comment</mat-error> 
+    <textarea matInput type="text" height="500" width="500" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
+    <mat-error *ngIf="Instructions.invalid">Please enter Instructions</mat-error> 
     <br>
     <br>
     <p>Add Img URL: </p>
     <textarea matInput type="text" name="img" ngModel required #img="ngModel">
     </textarea> 
     <br>
-    <br>
-    <button mat-raised-button type="submit" align ="center">Save Post</button>
 </mat-card>
     <br>
     <br> 
@@ -23,17 +21,17 @@
     <mat-card color="primary">   
     <mat-list>
       <mat-list-item>Ingredient 1</mat-list-item>
-      <textarea matInput type="text" name="One" ngModel required #One="ngModel"></textarea>
+      <textarea matInput type="text" name="ingredientOne" ngModel required #ingredientOne="ngModel"></textarea>
       <mat-divider></mat-divider>
       <mat-list-item>Ingredient 2</mat-list-item>
-      <textarea matInput type="text" name="Two" ngModel required #Two="ngModel"></textarea>
+      <textarea matInput type="text" name="ingredientTwo" ngModel required #ingredientTwo="ngModel"></textarea>
       <mat-divider></mat-divider>
       <mat-list-item>Ingredient 3</mat-list-item>
-      <textarea matInput type="text" name="Three" ngModel required #Three="ngModel"></textarea>
+      <textarea matInput type="text" name="ingredientThree" ngModel required #ingredientThree="ngModel"></textarea>
       <mat-divider></mat-divider>
       <mat-list-item>Ingredient 4</mat-list-item>
-      <textarea matInput type="text" name="Four" ngModel required #Four="ngModel"></textarea>
+      <textarea matInput type="text" name="ingredientFour" ngModel required #ingredientFour="ngModel"></textarea>
     </mat-list>
-    <button mat-raised-button (click)="onAddPostTest(postForm)" align ="center">Save Post</button>
+    <button mat-raised-button (click)="addRecipe(postForm)" align ="center">Save Post</button>
   </mat-card>
 </form>

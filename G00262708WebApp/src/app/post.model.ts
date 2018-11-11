@@ -1,11 +1,6 @@
-export interface Post {
+export interface Recipe {
     Dish: string;
-    Ingredients: string;
-    img:string;
-  }
-export interface PostTwo {
-    Dish: string;
-    Ingredients: string;
-    list: Array<string>;
+    Instructions: string;
+    Ingredients: Array<string>;
     img:string;
   }

@@ -1,24 +1,13 @@
 <mat-toolbar color="primary">Recipes</mat-toolbar>
 <mat-divider></mat-divider>
-<mat-card *ngFor="let post of databaseInfo">
+<mat-card *ngFor="let recipe of databaseInfo">
 	<mat-card-header>
-    <img src ="{{post.img}}" mat-card-avatar>
-		<mat-card-title>{{post.Dish}}</mat-card-title>
-    <mat-card-subtitle>{{post.Ingredients}}</mat-card-subtitle>
+    <img src ="{{recipe.img}}" mat-card-avatar>
+		<mat-card-title>{{recipe.Dish}}</mat-card-title>
+    <mat-card-subtitle>{{recipe.Instructions}}</mat-card-subtitle>
   </mat-card-header>
-      <ul *ngFor = "let h of post.list">
-      <li>{{h}}</li>
+      <ul *ngFor = "let ingredient of recipe.Ingredients">
+      <li>{{ingredient}}</li>
       </ul>
 </mat-card>
-<!-- <mat-accordion multi="true" >
-  <mat-expansion-panel [expanded]="true" *ngFor="let post of databaseInfo">
-    <mat-expansion-panel-header>
-      {{ post.title }}
-    </mat-expansion-panel-header>
-    <p>{{ post.comment }}</p>
-    <mat-action-row>
-      <button mat-button color="warn" (click)="delete(post._id)">DELETE</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion> -->
 <p class="info-text mat-body-1" *ngIf="databaseInfo.length <= 0">No posts added yet!</p> 

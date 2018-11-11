@@ -12,13 +12,11 @@ export class IndexComponent implements OnInit {
 
   databaseInfo:any = [];
   
-   
+  //on loading the page stores all recipes in the database to an array  databaseInfo
   ngOnInit(){ 
     //this.posts = this.ps.getPosts();
-
-    this.info.getPostsData().subscribe(data => {
+    this.info.getRecipes().subscribe(data => {
     this.databaseInfo = data;
-    console.log(this.databaseInfo);
     });
     
   }
