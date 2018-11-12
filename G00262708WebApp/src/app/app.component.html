@@ -1,9 +1,11 @@
+<div class ="container">
 <mat-toolbar color="primary">
     <span>Home Page</span>
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
     <button mat-button [routerLink]="['/index']" color="Warn">Home</button>
-    <button mat-button [routerLink]="['/pageTwo']" color="Warn">Add Info</button>
-    <button mat-button [routerLink]="['/search']" color="Warn">Search</button>
+    <button mat-button [routerLink]="['/pageTwo']" color="Warn">Add Recipe</button>
+    <button mat-button [routerLink]="['/search']" color="Warn">Search/Update Recipe</button>
 </mat-toolbar>
 <router-outlet></router-outlet>
+</div>

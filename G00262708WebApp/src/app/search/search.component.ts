@@ -56,7 +56,7 @@ export class SearchComponent implements OnInit {
     this.ingredients.push(postForm.value.Two);
     this.ingredients.push(postForm.value.Three);
     this.ingredients.push(postForm.value.Four);
-    this.info.updateRecipe(this.updateId, postForm.value.Dish, postForm.value.Ingredients, postForm.value.img, this.ingredients).subscribe();
+    this.info.updateRecipe(this.updateId, postForm.value.Dish, postForm.value.Instructions, postForm.value.img, this.ingredients).subscribe();
     this.bool++;
   }
 

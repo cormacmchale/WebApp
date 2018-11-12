@@ -3,3 +3,12 @@
      Every toolbar row uses a flexbox row layout. */
   flex: 11 auto;
 }
+.container
+{
+  background-image: url(.././images/back.jpg);
+  background-attachment: fixed;
+}
+.mat-toolbar
+{
+    background-image: url(.././images/back.jpg); 
+}

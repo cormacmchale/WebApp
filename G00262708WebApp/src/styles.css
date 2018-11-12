@@ -2,10 +2,29 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 .mat-card
 {
-
-    background: rgb(247, 203, 237);
+    max-width: 600px;
+    background-image: url(./images/test.jpg);
+    background-size: cover;
+    margin: 25px;
+    font-family: Georgia, Helvetica, sans-serif;
+    font-weight: 900;
+    font-style: oblique;
+    align-self: auto;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 .mat-raised-button
 {
-    background: rgb(208, 255, 0);
+    background: rgb(173, 201, 50);
+    margin: 25px;
+    margin-left: 25%;
+    margin-right: 25%;
 }
+.mat-toolbar
+{
+    background-image: url(./images/backround.jpg); 
+}
+
+
+
+ 

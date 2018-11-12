@@ -1,20 +1,20 @@
 <form #postForm="ngForm">
-  <h1>Recipe</h1>
     <mat-card color="primary">
-      <mat-list>
-          <mat-list-item>Dish</mat-list-item>
-            <textarea matInput type="text" name="Dish" ngModel required #Dish="ngModel"></textarea>
-              <mat-divider></mat-divider>  
-          <mat-list-item>Cooking Instructions</mat-list-item>
-            <textarea matInput type="text" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
-              <mat-divider></mat-divider> 
-        <mat-list-item>Image URL</mat-list-item>
-            <textarea matInput type="text"name="img" ngModel required #img="ngModel"></textarea>
-              <mat-divider></mat-divider>
-      </mat-list>
+        <mat-list>
+            <mat-list-item>Dish</mat-list-item>
+            <mat-form-field>
+              <textarea matInput type="text" name="Dish" ngModel required #Dish="ngModel"></textarea>            
+            </mat-form-field>
+                <mat-divider></mat-divider>
+            <mat-list-item>Instructions</mat-list-item>
+              <textarea matInput type="text" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
+                <mat-divider></mat-divider>
+            <mat-list-item>Image URL</mat-list-item>
+              <textarea matInput type="text" name="img" ngModel required #img="ngModel"></textarea>
+                <mat-divider></mat-divider>
+        </mat-list>
     </mat-card>
-<br> 
-  <h1>Ingredients</h1>
+<br>
     <mat-card color="primary">   
       <mat-list>
           <mat-list-item>Ingredient 1</mat-list-item>
@@ -30,9 +30,7 @@
             <textarea matInput type="text" name="ingredientFour" ngModel required #ingredientFour="ngModel"></textarea>
               <mat-divider></mat-divider>
       </mat-list>
-<br>
-<br>
-  <button mat-raised-button (click)="addRecipe(postForm)" align ="center">Add Recipe</button>
     </mat-card>
+    <button mat-raised-button (click)="addRecipe(postForm)" align ="center">Add Recipe</button>
 </form>
 
