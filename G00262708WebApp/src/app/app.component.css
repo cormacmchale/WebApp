@@ -6,9 +6,10 @@
 .container
 {
   background-image: url(.././images/back.jpg);
-  background-attachment: fixed;
+ 
 }
 .mat-toolbar
 {
-    background-image: url(.././images/back.jpg); 
+  background-image: url(.././images/back.jpg); 
+
 }

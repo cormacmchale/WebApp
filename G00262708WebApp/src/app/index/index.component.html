@@ -1,33 +1,33 @@
 <mat-card *ngFor="let recipe of databaseInfo">
-	<mat-card-header>
-       <img src ="{{recipe.img}}" mat-card-avatar>
-		<mat-card-title>{{recipe.Dish}}</mat-card-title>
-  </mat-card-header>
-  <br>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <mat-divider></mat-divider>
-  <h3>Ingredients</h3>
-      <ul *ngFor = "let ingredient of recipe.Ingredients">
-      <li>{{ingredient}}</li>
-      </ul>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
+    <mat-card-header>
+        <img src ="{{recipe.img}}" mat-card-avatar>
+	    <mat-card-title>{{recipe.Dish}}</mat-card-title>
+    </mat-card-header>
+<br>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+    <h3>Ingredients</h3>
+        <ul *ngFor = "let ingredient of recipe.Ingredients">
+        <li>{{ingredient}}</li>
+        </ul>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
     <h3>Instructions</h3>
-    <h4>{{recipe.Instructions}}</h4>
+        <h4>{{recipe.Instructions}}</h4>
 </mat-card>
 <br>
 <br>

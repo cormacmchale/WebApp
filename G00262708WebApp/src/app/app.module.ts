@@ -6,8 +6,6 @@ import { IndexComponent } from './index/index.component';
 import {GetInfoService} from './get-info.service';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 //for viewing pleasure
 import {
   MatAutocompleteModule,
@@ -48,12 +46,10 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
-
 //components
 import { AppComponent } from './app.component';
 import { PageTwoComponent } from './page-two/page-two.component';
 import { SearchComponent } from './search/search.component';
-
 const appRoutes: Routes = [
   {
   path: 'index', component: IndexComponent,
@@ -65,7 +61,6 @@ const appRoutes: Routes = [
   path: 'search', component: SearchComponent
   }
 ]
-
 @NgModule({
   declarations: [
     AppComponent,
