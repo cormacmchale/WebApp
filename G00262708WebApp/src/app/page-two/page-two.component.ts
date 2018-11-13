@@ -15,13 +15,27 @@ export class PageTwoComponent implements OnInit {
 
   constructor(private info:GetInfoService) { }
    
+  choice:string = this.info.getChoice();
+  setChoiceSavory()
+  {
+    this.info.setChoiceSavory();
+    this.ngOnInit();
+  }
+  setChoiceSweet()
+  {
+    this.info.setChoiceSweet();
+    this.ngOnInit();
+  }
  
-   addRecipe(postForm: NgForm) {
+   addRecipe(postForm: NgForm) 
+  {
+    this.choice = this.info.getChoice();
+    console.log(this.choice);
     this.ingredients.push(postForm.value.ingredientOne);
     this.ingredients.push(postForm.value.ingredientTwo);
     this.ingredients.push(postForm.value.ingredientThree);
     this.ingredients.push(postForm.value.ingredientFour);
-    this.info.addRecipe(postForm.value.Dish, postForm.value.Instructions,postForm.value.img, this.ingredients).subscribe();
+    this.info.addRecipe(postForm.value.Dish, postForm.value.Instructions,postForm.value.img, this.ingredients, this.choice).subscribe();
     postForm.resetForm();
   }
 

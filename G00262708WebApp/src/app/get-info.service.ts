@@ -8,32 +8,49 @@ import {Recipe} from './post.model';
   providedIn: 'root'
 })
 export class GetInfoService {
+  
+  choice:string;
 
+  setChoiceSavory()
+  {
+    this.choice = "Savory";
+    console.log(this.choice);
+  }
+  setChoiceSweet()
+  {
+    this.choice = "Sweet";
+    console.log(this.choice);
+  }
+  getChoice():string
+  {
+    return this.choice;
+  }
+  
   constructor(private http: HttpClient)  { }
-
   //returns all documents from the database
-  getRecipes(): Observable<any> {
-    return this.http.get("http://localhost:8081/database/test");
+  getRecipes(choice:string): Observable<any> 
+  {
+    console.log("I'm here with "+choice);
+    return this.http.get("http://localhost:8081/database/test/"+choice);
   }
   //sends recipe to sever.js
-  addRecipe(Dish: string, Instructions: string, img:string, Ingredients:Array<string>): Observable<any> {
+  addRecipe(Dish: string, Instructions: string, img:string, Ingredients:Array<string>,choice:string): Observable<any> {
     const recipe: Recipe = {Dish: Dish, Instructions: Instructions, img:img, Ingredients:Ingredients};
-    return this.http.post("http://localhost:8081/database/test",recipe);
+    return this.http.post("http://localhost:8081/database/test/"+choice,recipe);
   }
   //send the id to the database of document you wish to delete to server js
-  deleteRecipe(id: string): Observable<any>{
-    return this.http.delete("http://localhost:8081/database/delete/"+id);
+  deleteRecipe(id: string, choice:string): Observable<any>{
+    return this.http.delete("http://localhost:8081/database/delete/"+choice+id);
   }
   //searches for a returns a document based on the dish name
-  searchRecipe(Dish: string): Observable<any>
+  searchRecipe(Dish: string, choice:string): Observable<any>
   {
-    console.log(Dish);
-    return this.http.get("http://localhost:8081/database/search/"+Dish);
+    return this.http.get("http://localhost:8081/database/search/"+choice+Dish);
   }
   //sends id and new info to the server to find and updat a recipe
-  updateRecipe(id: string,Dish: string, Instructions: string, img:string, Ingredients:Array<string>): Observable<any> 
+  updateRecipe(id: string,Dish: string, Instructions: string, img:string, Ingredients:Array<string>, choice:string): Observable<any> 
   {
     const recipe: Recipe = {Dish: Dish, Instructions: Instructions, img:img, Ingredients:Ingredients};  
-    return this.http.put("http://localhost:8081/database/update/"+id, recipe);
+    return this.http.put("http://localhost:8081/database/update/"+choice+id, recipe);
   }
 }

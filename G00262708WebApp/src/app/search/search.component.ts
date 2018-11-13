@@ -19,24 +19,42 @@ export class SearchComponent implements OnInit {
   bool:number = 0;
   //storing id to be sent back for delete/update
   updateId:string;
-    
+  
+  choice:string = this.info.getChoice();
+  setChoiceSavory()
+  {
+    this.recipe = [];
+    this.info.setChoiceSavory();
+    this.ngOnInit();
+  }
+  setChoiceSweet()
+  {
+    this.recipe =[];
+    this.info.setChoiceSweet();
+    this.ngOnInit();
+  }  
   ngOnInit(){}
  
   search(searchWord: NgForm)
   {
+    this.choice = this.info.getChoice();
+    console.log(this.info.choice);
    //get data from database through searchPost->Service->server
-   this.info.searchRecipe(searchWord.value.dish).subscribe(data=>
+   this.info.searchRecipe(searchWord.value.dish, this.choice).subscribe(data=>
    {
     this.recipe = data;
     this.updateId = this.recipe._id; 
    });
    this.ngOnInit();
+   searchWord.resetForm();
   }//end search function
   
   delete(id) 
   {
+    this.choice = this.info.getChoice();
+    console.log(this.info.choice);
     //go to delete Post -> service->send Post id to server to delete post from database
-    this.info.deleteRecipe(id).subscribe();
+    this.info.deleteRecipe(id, this.choice).subscribe();
     //clear Array
     this.recipe=[]; 
     //re-load Page
@@ -50,13 +68,15 @@ export class SearchComponent implements OnInit {
   }
   updatePost(postForm: NgForm)
   {
+    this.choice = this.info.getChoice();
+    console.log(this.info.choice);
     //same logic as add recipe
     console.log("Update");
     this.ingredients.push(postForm.value.One);
     this.ingredients.push(postForm.value.Two);
     this.ingredients.push(postForm.value.Three);
     this.ingredients.push(postForm.value.Four);
-    this.info.updateRecipe(this.updateId, postForm.value.Dish, postForm.value.Instructions, postForm.value.img, this.ingredients).subscribe();
+    this.info.updateRecipe(this.updateId, postForm.value.Dish, postForm.value.Instructions, postForm.value.img, this.ingredients,this.info.choice).subscribe();
     this.bool++;
   }
 

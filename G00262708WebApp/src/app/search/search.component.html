@@ -1,3 +1,8 @@
+<div class = "body">
+<div class = "three">
+  <button class = "one" mat-raised-button (click)="setChoiceSavory()"></button>
+  <button class = "two" mat-raised-button (click)="setChoiceSweet()"></button>
+</div>
 <mat-card>
   <form (submit)="search(searchWord)" #searchWord="ngForm">
     <p>Search for a Recipe</p>
@@ -56,3 +61,4 @@
 </mat-card>
 <br>
 <br>
+</div>

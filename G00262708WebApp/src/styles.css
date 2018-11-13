@@ -2,8 +2,9 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 .mat-card
 {
-    max-width: 600px;
-    background-image: url(./images/test.jpg);
+    max-width: 900px;
+    background-image: url(./images/testing.jpg);
+    color: aliceblue;
     background-size: cover;
     margin: 25px;
     font-family: Georgia, Helvetica, sans-serif;

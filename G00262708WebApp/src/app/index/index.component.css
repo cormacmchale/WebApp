@@ -1,0 +1,27 @@
+.one
+{
+    border-radius: 12px;
+    padding: 20% 20%;
+    background-image: url(../.././images/savoryButton.jpg);
+    background-size: cover;
+    margin:5%;
+}
+.two{
+
+    border-radius: 12px;
+    padding: 20% 20%;
+    background-image: url(../.././images/sweetButton.jpg);
+    background-size: cover;
+    margin:5%;
+}
+.three
+{
+  margin: 25px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+.body
+{
+  background-image: url(../.././images/back.jpg);
+  background-size: contain;
+}

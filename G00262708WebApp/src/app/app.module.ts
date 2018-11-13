@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { IndexComponent } from './index/index.component';
-import {GetInfoService} from './get-info.service';
-import {HttpClientModule} from '@angular/common/http';
+import { GetInfoService } from './get-info.service';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //for viewing pleasure
 import {
