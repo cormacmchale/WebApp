@@ -11,6 +11,7 @@ export class IndexComponent implements OnInit {
 
   constructor(private info: GetInfoService) { }
 
+  choice:string;
   databaseInfo: any = [];
   setChoiceSavory() {
     this.info.setChoiceSavory();
@@ -22,6 +23,7 @@ export class IndexComponent implements OnInit {
   }
   //on loading the page stores all recipes in the database to an array  databaseInfo
   ngOnInit() {
+    this.choice = this.info.getChoice();
     //this.posts = this.ps.getPosts();
     if (this.info.getChoice() == "Savory") {
       this.info.getRecipes(this.info.getChoice()).subscribe(data => { this.databaseInfo = data; });

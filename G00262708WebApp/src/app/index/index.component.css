@@ -2,15 +2,23 @@
 {
     border-radius: 12px;
     padding: 20% 20%;
-    background-image: url(../.././images/savoryButton.jpg);
+    background-image: url(../.././images/savoryButtonNew.jpg);
     background-size: cover;
     margin:5%;
+}
+.section
+{
+  color:wheat;
+  text-align: center;
+  font-family: Georgia, Helvetica, sans-serif;
+  font-weight: 900;
+  font-style: oblique;
 }
 .two
 {
     border-radius: 12px;
     padding: 20% 20%;
-    background-image: url(../.././images/sweetButton.jpg);
+    background-image: url(../.././images/sweetButtonNew.jpg);
     background-size: cover;
     margin:5%;
 }

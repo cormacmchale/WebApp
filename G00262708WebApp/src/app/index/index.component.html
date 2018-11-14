@@ -3,6 +3,7 @@
         <button class="one" mat-raised-button (click)="setChoiceSavory()"></button>
         <button class="two" mat-raised-button (click)="setChoiceSweet()"></button>
     </div>
+    <h1 class="section">{{choice}}</h1>
     <mat-card *ngFor="let recipe of databaseInfo">
         <mat-card-header>
             <img src="{{recipe.img}}" mat-card-avatar>

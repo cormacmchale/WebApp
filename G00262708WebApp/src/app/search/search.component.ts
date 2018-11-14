@@ -19,6 +19,10 @@ export class SearchComponent implements OnInit {
   bool: number = 0;
   //storing id to be sent back for delete/update
   updateId: string;
+  choice:string;
+  ngOnInit() { 
+  this.choice = this.info.getChoice();
+  }
 
   setChoiceSavory() {
     if (this.info.getChoice() == "Sweet") {
@@ -36,7 +40,6 @@ export class SearchComponent implements OnInit {
     this.info.setChoiceSweet();
     this.ngOnInit();
   }
-  ngOnInit() { }
 
   search(searchWord: NgForm) {
     //get data from database through searchPost->Service->server

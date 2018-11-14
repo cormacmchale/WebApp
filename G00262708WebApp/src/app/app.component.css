@@ -11,5 +11,37 @@
 .container
 {
   background-image: url(.././images/back.jpg);
-
+}
+.one{
+background-image: url(.././images/RecipeButton.jpg);
+background-size: cover;
+height: 60%;
+width:15%;
+border-radius: 25px;
+margin-right:8.5%;
+margin-left: 11%;
+}
+.two
+{
+background-image: url(.././images/AddRecipeButtonNew.jpg);
+background-size: cover;
+height: 60%;
+width:15%;
+border-radius: 25px;
+margin-right:8%;
+margin-left:8.5%;
+}
+.three
+{
+background-image: url(.././images/searchButtonNew.jpg);
+background-size: cover;
+height: 60%;
+width:15%;
+border-radius: 25px;
+margin-right:8.5%;
+margin-left:8.5%;
+}
+.toolbar
+{
+  height: 200px;
 }

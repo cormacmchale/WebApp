@@ -15,7 +15,9 @@ export class PageTwoComponent implements OnInit {
 
   constructor(private info: GetInfoService) { }
 
+  choice:string;
   ngOnInit() {
+    this.choice = this.info.getChoice();
   }
 
   setChoiceSavory(postForm: NgForm) {
