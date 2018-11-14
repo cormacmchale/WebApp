@@ -1,40 +1,42 @@
-<div class = "body">
-<div class = "three">
-    <button class = "one" mat-raised-button (click)="setChoiceSavory()"></button>
-    <button class = "two" mat-raised-button (click)="setChoiceSweet()"></button>
-</div>
-<mat-card *ngFor="let recipe of databaseInfo">
-    <mat-card-header>
-        <img src ="{{recipe.img}}" mat-card-avatar>
-	    <mat-card-title>{{recipe.Dish}}</mat-card-title>
-    </mat-card-header>
-<br>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-    <h3>Ingredients</h3>
-        <ul *ngFor = "let ingredient of recipe.Ingredients">
-        <li>{{ingredient}}</li>
+<div class="body">
+    <div class="three">
+        <button class="one" mat-raised-button (click)="setChoiceSavory()"></button>
+        <button class="two" mat-raised-button (click)="setChoiceSweet()"></button>
+    </div>
+    <mat-card *ngFor="let recipe of databaseInfo">
+        <mat-card-header>
+            <img src="{{recipe.img}}" mat-card-avatar>
+            <mat-card-title>
+                <h1>{{recipe.Dish}}</h1>
+            </mat-card-title>
+        </mat-card-header>
+        <br>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <h3>Ingredients</h3>
+        <ul *ngFor="let ingredient of recipe.Ingredients">
+            <li>{{ingredient}}</li>
         </ul>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-    <h3>Instructions</h3>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <h3>Instructions</h3>
         <h4>{{recipe.Instructions}}</h4>
-</mat-card>
-<br>
-<br>
-<p class="info-text mat-body-1" *ngIf="databaseInfo.length <= 0">No Recipes!</p>
+    </mat-card>
+    <br>
+    <br>
+    <p class="info-text mat-body-1" *ngIf="databaseInfo.length <= 0">No Recipes!</p>
 </div>

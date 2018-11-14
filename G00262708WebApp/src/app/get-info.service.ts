@@ -14,23 +14,19 @@ export class GetInfoService {
   setChoiceSavory()
   {
     this.choice = "Savory";
-    console.log(this.choice);
   }
   setChoiceSweet()
   {
     this.choice = "Sweet";
-    console.log(this.choice);
   }
   getChoice():string
   {
     return this.choice;
-  }
-  
+  }  
   constructor(private http: HttpClient)  { }
   //returns all documents from the database
   getRecipes(choice:string): Observable<any> 
   {
-    console.log("I'm here with "+choice);
     return this.http.get("http://localhost:8081/database/test/"+choice);
   }
   //sends recipe to sever.js

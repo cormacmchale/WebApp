@@ -1,6 +1,6 @@
 .mat-list-item
 {
-    color: aliceblue;
+    color: wheat;
     font-family: Georgia, Helvetica, sans-serif;
     font-weight: 900;
     font-style: oblique;
@@ -26,9 +26,4 @@
   margin: 25px;
   margin-left: 35%;
   margin-right: 35%;
-}
-.body
-{
-  background-image: url(../.././images/back.jpg);
-  background-size: contain;
 }

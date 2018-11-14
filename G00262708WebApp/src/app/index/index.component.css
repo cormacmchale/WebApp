@@ -6,8 +6,8 @@
     background-size: cover;
     margin:5%;
 }
-.two{
-
+.two
+{
     border-radius: 12px;
     padding: 20% 20%;
     background-image: url(../.././images/sweetButton.jpg);
@@ -20,8 +20,8 @@
   margin-left: 35%;
   margin-right: 35%;
 }
-.body
+.mat-card-avatar
 {
-  background-image: url(../.././images/back.jpg);
-  background-size: contain;
+  height: 100px;
+  width: 100px;
 }

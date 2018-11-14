@@ -1,64 +1,78 @@
-<div class = "body">
-<div class = "three">
-  <button class = "one" mat-raised-button (click)="setChoiceSavory()"></button>
-  <button class = "two" mat-raised-button (click)="setChoiceSweet()"></button>
-</div>
-<mat-card>
-  <form (submit)="search(searchWord)" #searchWord="ngForm">
-    <p>Search for a Recipe</p>
+<div class="body">
+  <div class="three">
+    <button class="one" mat-raised-button (click)="setChoiceSavory(postForm)"></button>
+    <button class="two" mat-raised-button (click)="setChoiceSweet(postForm)"></button>
+  </div>
+  <mat-card>
+    <form (submit)="search(searchWord)" #searchWord="ngForm">
+      <p>Search for a Recipe</p>
       <mat-form-field>
-        <input matInput type="text" name="dish" ngModel required  #dish="ngModel">
+        <input matInput type="text" name="dish" ngModel required #dish="ngModel">
       </mat-form-field>
-<br>
-  <button mat-raised-button type="submit">Search</button>
-  </form>
-</mat-card>
-<mat-card *ngIf="recipe.Ingredients">
-  <mat-card-header>
-    <img src ="{{recipe.img}}" mat-card-avatar>
+      <br>
+      <button mat-raised-button type="submit">Search</button>
+    </form>
+  </mat-card>
+  <mat-card *ngIf="recipe.Ingredients">
+    <mat-card-header>
+      <img src="{{recipe.img}}" mat-card-avatar>
       <mat-card-title>{{recipe.Dish}}</mat-card-title>
-  </mat-card-header>
-    <ul *ngFor = "let ingredient of recipe.Ingredients">
+    </mat-card-header>
+    <ul *ngFor="let ingredient of recipe.Ingredients">
       <li>{{ingredient}}</li>
-      </ul>
-        <h2>Instructions</h2>
-          <h4>{{recipe.Instructions}}</h4>
-<br>
+    </ul>
+    <h2>Instructions</h2>
+    <h4>{{recipe.Instructions}}</h4>
+    <br>
     <button mat-raised-button (click)="delete(recipe._id)">Delete</button>
     <button mat-raised-button (click)="displayEdit()">Edit</button>
-</mat-card>
-<br>
-<br>
-<mat-card *ngIf="(bool%2)== 1" >
-  <form #postForm="ngForm">
-    <p>Dish: </p>
-      <input matInput type="text" [(ngModel)]="recipe.Dish" name="Dish" ngModel required  #Dish="ngModel">
-<br>
-<br>
-    <p>Instructions: </p>
-      <textarea matInput type="text" [(ngModel)]="recipe.Instructions" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
-<br>
-<br>
-  <p>Add Img URL: </p>
-    <textarea matInput type="text" [(ngModel)]="recipe.img" name="img" ngModel required #img="ngModel"></textarea> 
-<br>
-<br>
-  <mat-list>
-      <mat-list-item>Ingredient 1</mat-list-item>
-        <textarea matInput type="text" name="One" [(ngModel)]="recipe.Ingredients[0]" ngModel required #One="ngModel"></textarea>
-          <mat-divider></mat-divider>
-      <mat-list-item>Ingredient 2</mat-list-item>
-        <textarea matInput type="text" name="Two"[(ngModel)]="recipe.Ingredients[1]"  ngModel required #Two="ngModel"></textarea>
-          <mat-divider></mat-divider>
-      <mat-list-item>Ingredient 3</mat-list-item>
-        <textarea matInput type="text" name="Three" [(ngModel)]="recipe.Ingredients[2]" ngModel required #Three="ngModel"></textarea>
-          <mat-divider></mat-divider>
-      <mat-list-item>Ingredient 4</mat-list-item>
-        <textarea matInput type="text" name="Four" [(ngModel)]="recipe.Ingredients[3]" ngModel required #Four="ngModel"></textarea>
-  </mat-list>
-  <button mat-raised-button (click)=(updatePost(postForm)) align ="center">Edit Post</button> 
-  </form>
-</mat-card>
-<br>
-<br>
+  </mat-card>
+  <br>
+  <br>
+  <mat-card *ngIf="(bool%2)== 1">
+    <form #postForm="ngForm">
+      <p>Dish: </p>
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="recipe.Dish" name="Dish" ngModel required #Dish="ngModel">
+      </mat-form-field>
+      <br>
+      <br>
+      <p>Instructions: </p>
+      <mat-form-field>
+        <textarea matInput type="text" [(ngModel)]="recipe.Instructions" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
+      </mat-form-field>
+      <br>
+      <br>
+      <p>Add Img URL: </p>
+      <mat-form-field>
+        <textarea matInput type="text" [(ngModel)]="recipe.img" name="img" ngModel required #img="ngModel"></textarea>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-list>
+        <mat-list-item>Ingredient 1</mat-list-item>
+        <mat-form-field>
+          <textarea matInput type="text" name="One" [(ngModel)]="recipe.Ingredients[0]" ngModel required #One="ngModel"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-list-item>Ingredient 2</mat-list-item>
+        <mat-form-field>
+          <textarea matInput type="text" name="Two" [(ngModel)]="recipe.Ingredients[1]" ngModel required #Two="ngModel"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-list-item>Ingredient 3</mat-list-item>
+        <mat-form-field>
+          <textarea matInput type="text" name="Three" [(ngModel)]="recipe.Ingredients[2]" ngModel required #Three="ngModel"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-list-item>Ingredient 4</mat-list-item>
+        <mat-form-field>
+          <textarea matInput type="text" name="Four" [(ngModel)]="recipe.Ingredients[3]" ngModel required #Four="ngModel"></textarea>
+        </mat-form-field>
+      </mat-list>
+      <button mat-raised-button (click)=(updatePost(postForm)) align="center">Edit Post</button>
+    </form>
+  </mat-card>
+  <br>
+  <br>
 </div>

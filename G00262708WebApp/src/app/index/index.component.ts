@@ -9,33 +9,25 @@ import { AppComponent } from '../app.component';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private info:GetInfoService) { }
+  constructor(private info: GetInfoService) { }
 
-  databaseInfo:any = [];
-  choice:string = this.info.getChoice();
-  setChoiceSavory()
-  {
+  databaseInfo: any = [];
+  setChoiceSavory() {
     this.info.setChoiceSavory();
     this.ngOnInit();
   }
-  setChoiceSweet()
-  {
+  setChoiceSweet() {
     this.info.setChoiceSweet();
     this.ngOnInit();
   }
   //on loading the page stores all recipes in the database to an array  databaseInfo
-  ngOnInit()
-  { 
-    this.choice = this.info.getChoice();
-    console.log(this.info.choice);
+  ngOnInit() {
     //this.posts = this.ps.getPosts();
-    if(this.choice=="Savory")
-    {
-      this.info.getRecipes(this.choice).subscribe(data =>{this.databaseInfo = data;});
+    if (this.info.getChoice() == "Savory") {
+      this.info.getRecipes(this.info.getChoice()).subscribe(data => { this.databaseInfo = data; });
     }
-    else if(this.choice=="Sweet")
-    {
-      this.info.getRecipes(this.choice).subscribe(data =>{this.databaseInfo = data;});
+    else if (this.info.getChoice() == "Sweet") {
+      this.info.getRecipes(this.info.getChoice()).subscribe(data => { this.databaseInfo = data; });
     }
   }
 }

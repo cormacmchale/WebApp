@@ -4,7 +4,7 @@
 {
     max-width: 900px;
     background-image: url(./images/testing.jpg);
-    color: aliceblue;
+    color:wheat;
     background-size: cover;
     margin: 25px;
     font-family: Georgia, Helvetica, sans-serif;
@@ -22,8 +22,4 @@
     margin-right: 25%;
     text-align: center;
 }
-.mat-toolbar
-{
-    background-image: url(./images/backround.jpg);
-    background-size: cover;
-}
+
