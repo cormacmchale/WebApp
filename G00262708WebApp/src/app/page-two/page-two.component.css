@@ -13,8 +13,8 @@
     background-size: cover;
     margin:5%;
 }
-.two{
-
+.two
+{
     border-radius: 12px;
     padding: 20% 20%;
     background-image: url(../.././images/sweetButtonNew.jpg);
@@ -34,4 +34,17 @@
   font-family: Georgia, Helvetica, sans-serif;
   font-weight: 900;
   font-style: oblique;
+}
+.inputBoxSize
+{
+    height:250PX;
+}
+.inputBoxSizeTwo
+{
+    width:60%;
+}
+.size
+{
+height: 200px;
+width: 60%;
 }

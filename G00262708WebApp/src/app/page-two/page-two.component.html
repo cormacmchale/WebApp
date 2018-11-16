@@ -9,18 +9,21 @@
       <mat-list>
         <mat-list-item>Dish</mat-list-item>
         <mat-form-field>
-          <textarea matInput type="text" name="Dish" ngModel required #Dish="ngModel"></textarea>
+          <textarea matInput type="text" name="Dish" ngModel required #Dish="ngModel" required></textarea>
         </mat-form-field>
         <br>
         <mat-list-item>Instructions</mat-list-item>
-        <mat-form-field>
-          <textarea matInput type="text" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
+        <mat-form-field class="inputBoxSizeTwo">
+          <textarea class="inputBoxSize" matInput type="text" name="Instructions" ngModel required #Instructions="ngModel"></textarea>
         </mat-form-field>
         <br>
         <mat-list-item>Image URL</mat-list-item>
-        <mat-form-field>
-          <textarea matInput type="text" name="img" ngModel required #img="ngModel"></textarea>
+        <mat-form-field class="inputBoxSizeTwo">
+          <textarea matInput type="text" name="img" [(ngModel)]="displayimg" ngModel required #img="ngModel"></textarea>
         </mat-form-field>
+        <p>
+          <img class="size" *ngIf="displayimg" src="{{displayimg}}">
+        </p>
       </mat-list>
     </mat-card>
     <br>
