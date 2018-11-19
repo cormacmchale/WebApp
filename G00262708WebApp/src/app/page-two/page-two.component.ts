@@ -15,11 +15,13 @@ export class PageTwoComponent implements OnInit {
 
   constructor(private info: GetInfoService) { }
 
-  choice:string;
+  //grab the choice of collection from the service
+  choice: string;
   ngOnInit() {
     this.choice = this.info.getChoice();
   }
 
+  //setting which choices you want
   setChoiceSavory(postForm: NgForm) {
     if (this.info.getChoice() == "Sweet") {
       postForm.resetForm();
@@ -36,6 +38,10 @@ export class PageTwoComponent implements OnInit {
   }
 
   addRecipe(postForm: NgForm) {
+    //wont add unless form filled correctly
+    if (!postForm.valid) {
+      return;
+    }
     this.ingredients.push(postForm.value.ingredientOne);
     this.ingredients.push(postForm.value.ingredientTwo);
     this.ingredients.push(postForm.value.ingredientThree);

@@ -19,11 +19,13 @@ export class SearchComponent implements OnInit {
   bool: number = 0;
   //storing id to be sent back for delete/update
   updateId: string;
-  choice:string;
-  ngOnInit() { 
-  this.choice = this.info.getChoice();
+  //shared variable for showing which collection we are in
+  choice: string;
+  ngOnInit() {
+    this.choice = this.info.getChoice();
   }
 
+  //buttons to switch between collections with logic for concurrent feel to web app
   setChoiceSavory() {
     if (this.info.getChoice() == "Sweet") {
       this.recipe = [];
@@ -43,6 +45,10 @@ export class SearchComponent implements OnInit {
 
   search(searchWord: NgForm) {
     //get data from database through searchPost->Service->server
+    //if theres nothing entered then return form the function
+    if (!searchWord.valid) {
+      return;
+    }
     this.info.searchRecipe(searchWord.value.dish, this.info.getChoice()).subscribe(data => {
       this.recipe = data;
       this.updateId = this.recipe._id;
@@ -66,12 +72,12 @@ export class SearchComponent implements OnInit {
   }
   updatePost(postForm: NgForm) {
     //same logic as add recipe
-    console.log("Update");
     this.ingredients.push(postForm.value.One);
     this.ingredients.push(postForm.value.Two);
     this.ingredients.push(postForm.value.Three);
     this.ingredients.push(postForm.value.Four);
     this.info.updateRecipe(this.updateId, postForm.value.Dish, postForm.value.Instructions, postForm.value.img, this.ingredients, this.info.choice).subscribe();
+    //re-sets page for concurrency
     this.bool++;
   }
 }

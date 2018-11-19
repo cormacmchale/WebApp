@@ -1,44 +1,47 @@
 .mat-list-item
 {
-    color: wheat;
-    font-family: Georgia, Helvetica, sans-serif;
-    font-weight: 900;
-    font-style: oblique;
+color: wheat;
+font-family: Georgia, Helvetica, sans-serif;
+font-weight: 900;
+font-style: oblique;
 }
 .one
 {
-    border-radius: 12px;
-    padding: 20% 20%;
-    background-image: url(../.././images/savoryButtonNew.jpg);
-    background-size: cover;
-    margin:5%;
+border-radius: 12px;
+padding: 20% 20%;
+background-image: url(../.././images/savoryButtonNew.jpg);
+background-size: cover;
+margin:5%;
 }
-.two{
-    border-radius: 12px;
-    padding: 20% 20%;
-    background-image: url(../.././images/sweetButtonNew.jpg);
-    background-size: cover;
-    margin:5%;
+.two
+{
+border-radius: 12px;
+padding: 20% 20%;
+background-image: url(../.././images/sweetButtonNew.jpg);
+background-size: cover;
+margin:5%;
 }
 .three
 {
-  margin: 25px;
-  margin-left: 35%;
-  margin-right: 35%;
+margin: 25px;
+margin-left: 35%;
+margin-right: 35%;
 }
 .section
 {
-  color:wheat;
-  text-align: center;
-  font-family: Georgia, Helvetica, sans-serif;
-  font-weight: 900;
-  font-style: oblique;
+color:wheat;
+text-align: center;
+font-family: Georgia, Helvetica, sans-serif;
+font-weight: 900;
+font-style: oblique;
 }
-.inputBoxSize{
-    height:250PX;
+.inputBoxSize
+{
+height:250PX;
 }
-.inputBoxSizeTwo{
-    width:60%;
+.inputBoxSizeTwo
+{
+width:60%;
 }
 .size
 {
@@ -47,6 +50,6 @@ width: 60%;
 }
 .mat-card-avatar
 {
-  height: 100px;
-  width: 100px;
+height: 100px;
+width: 100px;
 }

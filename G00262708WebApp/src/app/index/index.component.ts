@@ -10,9 +10,10 @@ import { AppComponent } from '../app.component';
 export class IndexComponent implements OnInit {
 
   constructor(private info: GetInfoService) { }
-
-  choice:string;
+  //variable for storing the coolection/choice
+  choice: string;
   databaseInfo: any = [];
+  //set collection
   setChoiceSavory() {
     this.info.setChoiceSavory();
     this.ngOnInit();
@@ -21,10 +22,11 @@ export class IndexComponent implements OnInit {
     this.info.setChoiceSweet();
     this.ngOnInit();
   }
-  //on loading the page stores all recipes in the database to an array  databaseInfo
+  //on loading the page stores all recipes in the database to an array databaseInfo
   ngOnInit() {
+    //gets choice from service
     this.choice = this.info.getChoice();
-    //this.posts = this.ps.getPosts();
+    //gets info from correct collection from database to display
     if (this.info.getChoice() == "Savory") {
       this.info.getRecipes(this.info.getChoice()).subscribe(data => { this.databaseInfo = data; });
     }
