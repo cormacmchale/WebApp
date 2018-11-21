@@ -107,8 +107,9 @@ app.get('/database/search/Savory:Dish', function (req, res) {
 app.get('/database/search/Sweet:Dish', function (req, res) {
     Desserts.findOne({ Dish: req.params.Dish }, function (err, data) {
         if (err) {
-            res.send(err)
-            console.log(err);
+            res.status(404).send();
+            // res.send(err)
+            // console.log(err);
         }
         res.json(data);
     });
