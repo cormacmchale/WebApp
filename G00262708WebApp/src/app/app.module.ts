@@ -50,6 +50,7 @@ import {
 import { AppComponent } from './app.component';
 import { PageTwoComponent } from './page-two/page-two.component';
 import { SearchComponent } from './search/search.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 const appRoutes: Routes = [
   {
   path: 'index', component: IndexComponent,
@@ -66,7 +67,8 @@ const appRoutes: Routes = [
     AppComponent,
     IndexComponent,
     PageTwoComponent,
-    SearchComponent
+    SearchComponent,
+    DisclaimerComponent
   ],
   imports: [
     BrowserModule,

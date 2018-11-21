@@ -45,3 +45,11 @@ margin-left:8.5%;
 {
   height: 200px;
 }
+.h1
+{
+  color:wheat;
+  text-align: center;
+  font-family: Georgia, Helvetica, sans-serif;
+  font-weight: 900;
+  font-style: oblique;
+}

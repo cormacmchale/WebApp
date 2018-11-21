@@ -1,10 +1,11 @@
-<div class = "container">
-<mat-toolbar class = "toolbar" color="primary">
-    <!-- <span>Home Page</span> -->
-    <!-- This fills the remaining space of the current row -->
-    <button class="one" mat-button [routerLink]="['/index']" color="Warn"></button>
-    <button class="two" mat-button [routerLink]="['/pageTwo']" color="Warn"></button>
-    <button class="three" mat-button [routerLink]="['/search']" color="Warn"></button>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<div class="container">
+    <mat-toolbar class="toolbar" color="primary">
+        <!-- <span>Home Page</span> -->
+        <!-- This fills the remaining space of the current row -->
+        <button class="one" mat-button [routerLink]="['/index']" color="Warn"></button>
+        <button class="two" mat-button [routerLink]="['/pageTwo']" color="Warn"></button>
+        <button class="three" mat-button [routerLink]="['/search']" color="Warn"></button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <app-disclaimer></app-disclaimer>
 </div>
