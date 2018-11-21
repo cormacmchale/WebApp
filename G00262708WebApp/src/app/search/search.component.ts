@@ -21,6 +21,8 @@ export class SearchComponent implements OnInit {
   updateId: string;
   //shared variable for showing which collection we are in
   choice: string;
+  //variable for searching
+  notFound: string = " ";
   ngOnInit() {
     this.choice = this.info.getChoice();
   }
@@ -50,11 +52,18 @@ export class SearchComponent implements OnInit {
       return;
     }
     this.info.searchRecipe(searchWord.value.dish, this.info.getChoice()).subscribe(data => {
-      this.recipe = data;
-      this.updateId = this.recipe._id;
+      //client side logic for catching errors
+      if (data != null) {
+        this.recipe = data;
+        this.updateId = this.recipe._id;
+        this.notFound = " ";
+      }
+      else {
+        this.notFound = "Recipe not in Book!";
+      }
     });
-    this.ngOnInit();
     searchWord.resetForm();
+    this.ngOnInit();
   }//end search function
 
   delete(id) {
@@ -72,6 +81,9 @@ export class SearchComponent implements OnInit {
   }
   updatePost(postForm: NgForm) {
     //same logic as add recipe
+    if (!postForm.valid) {
+      return;
+    }
     this.ingredients.push(postForm.value.One);
     this.ingredients.push(postForm.value.Two);
     this.ingredients.push(postForm.value.Three);

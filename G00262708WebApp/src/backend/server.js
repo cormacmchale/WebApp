@@ -57,7 +57,7 @@ app.post('/database/test/Savory', function (req, res) {
         }
         );
     //error handling for sending duplicates
-    res.send("No Duplicates Please");
+    res.status(200).send();
 })//end post
 app.post('/database/test/Sweet', function (req, res) {
     //console.log(req.body)
@@ -71,7 +71,7 @@ app.post('/database/test/Sweet', function (req, res) {
         }
         );
     //error handling for sending duplicates
-    res.send("No Duplicates Please");
+    res.status(200).send();
 })//end post
 
 //returns all documents to client
@@ -98,8 +98,7 @@ app.get('/database/test/Sweet', function (req, res) {
 app.get('/database/search/Savory:Dish', function (req, res) {
     NewModel.findOne({ Dish: req.params.Dish }, function (err, data) {
         if (err) {
-            res.send(err)
-            console.log(err);
+            res.status(404).send();
         }
         res.json(data);
     });
@@ -108,8 +107,6 @@ app.get('/database/search/Sweet:Dish', function (req, res) {
     Desserts.findOne({ Dish: req.params.Dish }, function (err, data) {
         if (err) {
             res.status(404).send();
-            // res.send(err)
-            // console.log(err);
         }
         res.json(data);
     });
