@@ -3,6 +3,12 @@ var app = express();
 var path = require('path');
 var bodyParser = require("body-parser");
 
+//launch app from server.js
+app.use("/", express.static(path.join("project")));
+app.get('/', function (req, res) {
+    res.sendFile(path.join("project", "index.html"));
+})
+
 //setting up mongoose/database connection and schema
 var mongoose = require('mongoose');
 const mongoDB = 'mongodb://shamsandwiches:materia22@ds137863.mlab.com:37863/labdatabase';

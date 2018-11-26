@@ -17,6 +17,7 @@ export class PageTwoComponent implements OnInit {
 
   //grab the choice of collection from the service
   choice: string;
+  displayimg:string;
   ngOnInit() {
     this.choice = this.info.getChoice();
   }

@@ -63,6 +63,7 @@ export class SearchComponent implements OnInit {
       }
     });
     searchWord.resetForm();
+    this.bool = 0;
     this.ngOnInit();
   }//end search function
 
