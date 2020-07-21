@@ -306,25 +306,25 @@ var GetInfoService = /** @class */ (function () {
     };
     //returns all documents from the database
     GetInfoService.prototype.getRecipes = function (choice) {
-        return this.http.get("http://46.101.213.83/:8081/database/test/" + choice);
+        return this.http.get("http://46.101.213.83:8081/database/test/" + choice);
     };
     //sends recipe to sever.js
     GetInfoService.prototype.addRecipe = function (Dish, Instructions, img, Ingredients, choice) {
         var recipe = { Dish: Dish, Instructions: Instructions, img: img, Ingredients: Ingredients };
-        return this.http.post("http://46.101.213.83/:8081/database/test/" + choice, recipe);
+        return this.http.post("http://46.101.213.83:8081/database/test/" + choice, recipe);
     };
     //send the id to the database of document you wish to delete to server js
     GetInfoService.prototype.deleteRecipe = function (id, choice) {
-        return this.http.delete("http://46.101.213.83/:8081/database/delete/" + choice + id);
+        return this.http.delete("http://46.101.213.83:8081/database/delete/" + choice + id);
     };
     //searches for a returns a document based on the dish name
     GetInfoService.prototype.searchRecipe = function (Dish, choice) {
-        return this.http.get("http://46.101.213.83/:8081/database/search/" + choice + Dish);
+        return this.http.get("http://46.101.213.83:8081/database/search/" + choice + Dish);
     };
     //sends id and new info to the server to find and updat a recipe
     GetInfoService.prototype.updateRecipe = function (id, Dish, Instructions, img, Ingredients, choice) {
         var recipe = { Dish: Dish, Instructions: Instructions, img: img, Ingredients: Ingredients };
-        return this.http.put("http://46.101.213.83/:8081/database/update/" + choice + id, recipe);
+        return this.http.put("http://46.101.213.83:8081/database/update/" + choice + id, recipe);
     };
     GetInfoService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
